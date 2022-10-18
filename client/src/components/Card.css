@@ -1,0 +1,23 @@
+.container{
+    justify-content: space-between;
+    position: relative;
+    top: 150px;
+    left: 350px;
+    bottom: 400px;
+    margin-bottom: 10px;
+    width: 320px;
+    height: 450px;
+    font-family: "RocknRoll one", sans-serif;
+}
+.container .card{
+    position: relative;
+    width: 320px;
+    height: 450px;
+    
+    border-radius: 20px;
+    overflow: hidden;
+
+}
+.container .imgB{
+    position:relative;
+}
