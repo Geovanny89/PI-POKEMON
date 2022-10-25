@@ -24,6 +24,7 @@ export default function Card({name,img,hp,ataque,types,id }){
             <div className="type">   
                 <p>Tipo: </p>
                 <h3>{types}</h3>
+                {console.log(types)}
             </div> 
             
           </div>  

@@ -24,7 +24,7 @@ return(
                 <h1>{myPokemons[0].name}</h1>
                 <img src={myPokemons[0].img }/>
                 <h2>Hp: {myPokemons[0].hp}</h2>
-                <p>Ataque: {myPokemons.ataque}</p>
+                <p>Ataque: {myPokemons[0].ataque}</p>
                 <p>Tipo: {!myPokemons[0].createdInDb ? myPokemons[0].types + " " : myPokemons[0].tipos.map(el =>el.name +(' '))}</p>
 
             </div> : <p>Loading...</p>

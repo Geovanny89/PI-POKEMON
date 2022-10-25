@@ -31,7 +31,7 @@ export default function PokemonCreate(){
         peso:' ',
         defensa:' ',
         type: ['normal']
-
+      
     })
 
     // eslint-disable-next-line no-unused-vars
@@ -104,22 +104,22 @@ export default function PokemonCreate(){
                     <input type="text" name="img" onChange={handleChange}/>
                     <br />
 
-                    <div className="vida">
+                <div className="vida">
                         <label>Vida </label>
                         <input type="text" value={input.hp} name="hp" onChange={handleChange}/>
                
                         <label>Ataque </label>
                         <input type="text" value={input.ataque} name="ataque" onChange={handleChange}/>
                     
-                    <label>Altura </label>
-                    <input type="text" value={input.altura} name="altura" onChange={handleChange}/>
+                        <label>Altura </label>
+                        <input type="text" value={input.altura} name="altura" onChange={handleChange}/>
                
-                    <label>Peso </label>
-                    <input type="text" value={input.peso} name="peso" onChange={handleChange}/>
+                        <label>Peso </label>
+                        <input type="text" value={input.peso} name="peso" onChange={handleChange}/>
                 
-                    <label>Defensa </label>
-                    <input type="text" value={input.defensa} name="defensa" onChange={handleChange}/>
-                    </div>
+                        <label>Defensa </label>
+                        <input type="text" value={input.defensa} name="defensa" onChange={handleChange}/>
+                </div>
                 <select onChange={(e)=>handleSelect(e)}>
                     {
                         allTypes?.map((t) =>(

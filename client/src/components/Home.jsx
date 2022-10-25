@@ -8,9 +8,7 @@ import Card from "./Card";
 import Paginado from "./Paginado";
 import SearchBar from "./SearchBar";
 import "./home.css"
-import PokemonCreate from "./PokemonCreate";
 
-//import Card from "./Card";
 
 //trabajamsos con hooks
 
@@ -110,7 +108,7 @@ function handleFilterAsc(e){
                         // eslint-disable-next-line react/jsx-no-undef
                         
                             <Link to={'/home'}>
-                                <Card key={c.id} id={c.id} name={c.name} img={c.img ? c.img : c.image} types={c.type ? c.type : c.types} hp={c.hp} ataque={c.ataque} 
+                                <Card key={c.id} id={c.id} name={c.name} img={c.img ? c.img : c.image} types={c.types} hp={c.hp} ataque={c.ataque} 
                                 
                                 />
                             </Link>

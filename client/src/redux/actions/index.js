@@ -2,12 +2,20 @@ import axios from 'axios';
 
 export function getPokemons(){
     return async function(dispatch){
-        var pedidoApi = await axios.get("http://localhost:3001/getAll")
-        /* console.log(pedidoApi.data) */
+      axios.get("http://localhost:3001/getAll")
+      .then((res)=>{
+        return dispatch({
+          type: 'GET_POKEMONS',
+          payload: res.data
+        });
+      })
+      .catch((error)=> console.log(error));
+        /* var pedidoApi = await axios.get("http://localhost:3001/getAll")
+         console.log(pedidoApi.data) 
         return dispatch({
             type: 'GET_POKEMONS',
             payload: pedidoApi.data
-        })
+        }) */
     }
 }
 export function getNamePokemons(name){
@@ -31,7 +39,7 @@ export function getTypes(){
     return dispatch({
       type: "GET_TYPES",
       payload:info.data
-    });
+    })
   }
 }
 

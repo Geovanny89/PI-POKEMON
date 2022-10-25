@@ -49,7 +49,8 @@ router.get("/getAll/types", async (req, res) => {
 router.post('/pokemons', async(req, res) => {
     const {name,img,hp,ataque,type,altura,peso,defensa}=req.body;
 
-    if(!name || !img || !hp || !ataque || !type ||!altura || !peso||!defensa) return res.status(400).json({msg:"Faltan datos"});
+    if(!name || !img || !hp || !ataque || !type ||!altura || !peso||!defensa) 
+    return res.status(400).json({msg:"Faltan datos"});
 
     
     try {
@@ -57,6 +58,7 @@ router.post('/pokemons', async(req, res) => {
       const nuevoPokemon= await Pokemon.create(obj) 
     
       res.send(nuevoPokemon);
+      console.log(nuevoPokemon)
 
       
       

@@ -42,7 +42,6 @@ function rootReducer(state = initialState,action){
                 return{
                     ...state,
                     pokemons : pokemonsFiltered
-                    
 
             }
         case 'ORDER_BY_NAME':
