@@ -10,6 +10,43 @@ export function getPokemons(){
         })
     }
 }
+export function getNamePokemons(name){
+  return async function(dispatch){
+  //  console.log(dispatch)
+    try {
+      var llamadoApi =await axios.get('http://localhost:3001/getAll?name=' + name );
+      return dispatch({
+        type: "GET_NAME_POKEMONS",
+        payload: llamadoApi.data
+      })
+     }catch (error) {
+      console.log(error)
+    }
+  }
+} 
+export function getTypes(){
+  return async function (dispatch){
+    var info = await axios.get("http://localhost:3001/getAll/types");
+    console.log(info)
+    return dispatch({
+      type: "GET_TYPES",
+      payload:info.data
+    });
+  }
+}
+
+
+export function postPokemon(payload){
+  return async function(dispatch){
+    var response = await axios.post("http://localhost:3001/pokemons", payload);
+    console.log(response)
+    return response;
+    /* return dispatch ({
+      type: 'POST_POKEMON',
+      payload:response  })*/
+      
+  } 
+}
 export function filterPokemonsByFilter(payload){
   console.log(payload)
   return{
@@ -19,15 +56,30 @@ export function filterPokemonsByFilter(payload){
 }
 export function orderByName(payload){
   return{
-    type: 'ORDER_BY:NAME',
+    type: 'ORDER_BY_NAME',
     payload
   }
 }
- 
+
+// Filtro creados, existentes 
 export function filterCreated(payload){
   return{
     type: 'FILTER_CREATED',
     payload
+  }
+}
+export function getDetail(id){
+  return async function(dispatch){
+    try {
+      var idApi = await axios.get("http://localhost:3001/" + id);
+      return dispatch({
+        type: "GET_DETAIL",
+        payload: idApi.data
+      })
+    } catch (error) {
+      console.log(error)
+    }
+   
   }
 }
 

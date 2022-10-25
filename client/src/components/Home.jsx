@@ -2,10 +2,14 @@
 import React from "react";
 import { useState ,  useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux'
-import { getPokemons,filterPokemonsByFilter, filterCreated,orderByName } from "../redux/actions";
+import { getPokemons,filterPokemonsByFilter, filterCreated,orderByName} from "../redux/actions";
 import {Link} from 'react-router-dom'
 import Card from "./Card";
 import Paginado from "./Paginado";
+import SearchBar from "./SearchBar";
+import "./home.css"
+import PokemonCreate from "./PokemonCreate";
+
 //import Card from "./Card";
 
 //trabajamsos con hooks
@@ -14,8 +18,9 @@ export default function Home(){
     const dispatch = useDispatch()
     // eslint-disable-next-line no-unused-vars
     const allPokemons = useSelector((state) => state.pokemons);
+
 //creo estados locales
-const [orden,setOrden]=useState('')
+const [order,setOrder]=useState('')
 const [currentPage, setCurrentPage]= useState(1)
 const [pokemonsXpage, setPokemonsXpage]= useState(12)
 const indexOfLastPokemon = currentPage * pokemonsXpage
@@ -29,13 +34,14 @@ const paginado = (pageNumber) =>{
     useEffect(() => { //traemos los personajes
         dispatch(getPokemons())
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[dispatch])
+    },[])
     // eslint-disable-next-line no-unused-vars
     function handleClick(e){
         e.preventDefault();
         dispatch(getPokemons());
     }
     function handleFilterTypes(e){
+        console.log(allPokemons);
         dispatch(filterPokemonsByFilter(e.target.value))
     }
 function handleFilterCreate(e){
@@ -45,11 +51,11 @@ function handleFilterAsc(e){
     e.preventDefault()
     dispatch(orderByName(e.target.value))
     setCurrentPage(1)
-    setOrden(`Ordenado ${e.target.value}`)
+    setOrder(`Ordenado ${e.target.value}`)
 }
 
     return (
-        <div>
+        <div className="page">
             <Link to='/pokemons'>Crear Pokemon</Link>
             <h1>POKEMON</h1>
             <button onClick={e=> handleClick(e)}>
@@ -86,7 +92,7 @@ function handleFilterAsc(e){
 
                 </select>
                 <select onChange={e => handleFilterCreate(e)}>
-                    <option value="All">Todos</option>
+                    <option value="All">Todos</option> 
                     <option value="created">Creados</option>
                     <option value="api">Existente</option>
                 </select>
@@ -96,16 +102,18 @@ function handleFilterAsc(e){
                 paginado={paginado}
 
                 />
+                
+                <SearchBar/>
+
                 {currentPokemons?.map(c=>{
                     return(
                         // eslint-disable-next-line react/jsx-no-undef
                         
                             <Link to={'/home'}>
-                                <Card name={c.name} img={c.img} key={c.id} types={c.types} hp={c.hp} ataque={c.ataque} 
-                                defensa={c.defensa} velocidad={c.velocidad}
+                                <Card key={c.id} id={c.id} name={c.name} img={c.img ? c.img : c.image} types={c.type ? c.type : c.types} hp={c.hp} ataque={c.ataque} 
+                                
                                 />
                             </Link>
-                        
                         )
                 })} 
 

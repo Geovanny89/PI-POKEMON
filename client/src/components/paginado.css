@@ -1,7 +1,26 @@
-.pagination {
-    background-color: black;
-}
 
-.number {
-    background-color: brown;
+.barra ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+.barra ul li{
+    display: inline-block;
+    border: 10px;
+    
+    
+}
+.barra ul li a{
+    display: block;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    
+}
+.barra ul li a:hover{
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: rgb(175, 186, 196);
 }

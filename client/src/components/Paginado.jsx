@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-//import './paginado.css'
+import './paginado.css'
 
 export default function Paginado({pokemonsXPage,allPokemons,paginado}){
     const pageNumbers =[];
@@ -9,8 +9,8 @@ export default function Paginado({pokemonsXPage,allPokemons,paginado}){
         pageNumbers.push(i+1)
     }
     return (
-        <nav>
-            <ul className='paginado'>
+        <nav className='barra'>
+            <ul>
                 {pageNumbers && 
                 pageNumbers.map(number =>(
                     <li className="number" key={number}>
